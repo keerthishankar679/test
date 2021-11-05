@@ -30,8 +30,3 @@ jobs:
       
     - name: Step 4 - list the cureent directory
       run: ls -a
-      
-    - name: step 5 - what is the target folder
-      run: |
-      cd  target
-      ls -a
