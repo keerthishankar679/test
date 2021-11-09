@@ -5,9 +5,9 @@ name: GIThub actions Maven build example
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -28,5 +28,6 @@ jobs:
     - name: Step 3 - Build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Step 4 - list the cureent directory
-      run: ls -a
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+    
