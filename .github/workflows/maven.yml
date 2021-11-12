@@ -26,7 +26,7 @@ jobs:
         cache: maven
         
     - name: Step 3 - Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file test/java-hello-world-with-maven-master/pom.xml
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
