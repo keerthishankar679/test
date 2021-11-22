@@ -53,6 +53,9 @@ jobs:
     - name: step 4 - unit test
       run: mvn -B test --file pom.xml
     
-    - name: Upload a Build Artifact
+    - name: publish artifact
       uses: actions/upload-artifact@v2
+      with :
+        name: Artifact
+        path: target/*.jar
     
