@@ -50,7 +50,7 @@ jobs:
       continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
       
     - name: step 4 - unit test
-      run: mvn -B test --file pom.xml
+      run: mvn -B test --file ./java-hello-world-with-maven-master/pom.xml
     
     - name: publish artifact
       uses: actions/upload-artifact@v2
