@@ -57,4 +57,11 @@ jobs:
       with :
         name: Artifact
         path: target/*.jar
+        
+    - name: Cache SonarCloud 
+      uses: actions/cache@v1
+      with:
+        Path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
     
