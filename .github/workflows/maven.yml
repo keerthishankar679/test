@@ -46,7 +46,7 @@ jobs:
     - name: Step 3 - Build with Maven
       id: build_maven
       if: ${{ env.BUILD_TECH == 'java_maven' }}
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file ./java-hello-world-with-maven-master/pom.xml
       continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
       
     - name: step 4 - unit test
