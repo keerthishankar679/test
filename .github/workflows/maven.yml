@@ -6,7 +6,6 @@ name: GIThub actions Maven build example
 env:
   STACK: Java
   BUILD_TECH: java_maven
-  MVN_AGRS: clean Install --batch-mode --update-snapshots verify
   CONTINUE_ON_ERROR: false
   CONTINUE_ON_ERROR_SETUP: true
   JOB_STATUS_CODE: 0
@@ -47,7 +46,7 @@ jobs:
     - name: Step 3 - Build with Maven
       id: build_maven
       if: ${{ env.BUILD_TECH == 'java_maven' }}
-      run: mvn ${{ env.MVN_ARGS }}
+      run: mvn -B package --file pom.xml
       continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
       
     - name: step 4 - unit test
