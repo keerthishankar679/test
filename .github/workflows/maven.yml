@@ -65,9 +65,6 @@ jobs:
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
         
-    - name: Install Wget
-      run: sudo apt install wget
-        
     - name: Generate JaCoCo Badge
       uses: cicirello/jacoco-badge-generator@v2
       with:          
