@@ -6,7 +6,7 @@ name: GIThub actions Maven build example
 env:
   STACK: Java
   BUILD_TECH: java_maven
-  CONTINUE_ON_ERROR: false
+  CONTINUE_ON_ERROR: true
   CONTINUE_ON_ERROR_SETUP: true
   JOB_STATUS_CODE: 0
   
