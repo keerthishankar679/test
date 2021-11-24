@@ -36,6 +36,7 @@
                 <version>0.8.7</version>
                 <executions>
                     <execution>
+                        <id>generate-code-coverage-report</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
