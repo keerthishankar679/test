@@ -64,4 +64,12 @@ jobs:
         Path: ~/.sonar/cache
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
-    
+        
+    - name: Install Wget
+      run: sudo apt install wget
+        
+    - name: Download jacoco jar
+        run: |
+          wget https://repo1.maven.org/maven2/org/jacoco/jacoco/0.8.1/jacoco-0.8.1.zip -O '/home/runner/work/simple-java-maven-app/simple-java-maven-app/lib/jacoco-0.8.1.zip'
+          unzip /home/runner/work/simple-java-maven-app/simple-java-maven-app/lib/jacoco-0.8.1.zip
+          ls -ltr
