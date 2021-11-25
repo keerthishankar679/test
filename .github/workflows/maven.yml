@@ -66,7 +66,7 @@ jobs:
         restore-keys: ${{ runner.os }}-sonar
         
     - name: Generate JaCoCo Badge
-      uses: cicirello/jacoco-badge-generator@v2
+      uses: cicirello/jacoco-badge-generator@v2.5.0
       with:          
         jacoco-csv-file: target/site/jacoco/jacoco.csv
         badges-directory: .github/JaCoCo
