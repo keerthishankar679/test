@@ -43,51 +43,20 @@ jobs:
         distribution: 'adopt'
         cache: maven
         
-    - name: Step 3 - Build with Maven
-      id: build_maven
-      if: ${{ env.BUILD_TECH == 'java_maven' }}
-      run: mvn -B package --file ./java-hello-world-with-maven-master/pom.xml
-      continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
-      
-    - name: step 4 - unit test
-      run: mvn -B test --file ./java-hello-world-with-maven-master/pom.xml
-    
-    - name: publish artifact
-      uses: actions/upload-artifact@v2
-      with :
-        name: Artifact
-        path: target/*.jar
-        
-    - name: Cache SonarCloud 
+    - name: Cache SonarCloud packages
       uses: actions/cache@v1
       with:
-        Path: ~/.sonar/cache
+        path: ~/.sonar/cache
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
-        
-    - name: Generate JaCoCo Badge
-      uses: cicirello/jacoco-badge-generator@v2.5.0
-      with:          
-        jacoco-csv-file: target/site/jacoco/jacoco.csv
-        badges-directory: .github/JaCoCo
-        generate-coverage-badge: true
-        coverage-badge-filename: jacoco.svg
-        generate-branches-badge: false
-        branches-badge-filename: branches.svg
-        colors: '#4c1 #97ca00 #a4a61d #dfb317 #fe7d37 #e05d44'
-        intervals: 100 90 80 70 60 0
-        on-missing-report: fail
-        fail-if-coverage-less-than: 0
-        fail-if-branches-less-than: 0
-        fail-on-coverage-decrease: false
-        fail-on-branches-decrease: false
-        
-    - name: Log coverage percentage
-      run: |
-        echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
-        echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"     
-    - name: Upload JaCoCo coverage report
-      uses: actions/upload-artifact@v2
+    - name: Cache Maven packages
+      uses: actions/cache@v1
       with:
-        name: jacoco-report
-        path: target/site/jacoco/
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    - name: Build and analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=alubillivani_test
