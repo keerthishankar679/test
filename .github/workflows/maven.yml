@@ -93,5 +93,5 @@ jobs:
       shell : bash
       run: |
         ##curl --location --request GET 'curl --location --request GET 'https://sonarcloud.io/project/information?id=alubillivani_test' --header 'Authorization: Bearer e767ca54617cac3188f0cef8f80a6a43d8211784' | jq '.component.measures' | jq '.[] | {metrics:.metric,value: .value}' > ./Response.json
-        curl --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=alubillivani_test' --header 'Authorization: Bearer bb81119ac9f8d979adce828182fbec09f5197485'
+        curl --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=alubillivani_test' --header 'Authorization: Bearer bb81119ac9f8d979adce828182fbec09f5197485' > ./Response.json
         cat ./Response.json
