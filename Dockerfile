@@ -1,7 +1,7 @@
 FROM docker:stable
 
 LABEL "name"="Docker Action"
-LABEL "maintainer"="vani06"
+LABEL "maintainer"="Yeongjin Lee <yeongjinnn@gmail.com>"
 LABEL "version"="1.0.0"
 
 LABEL "com.github.actions.name"="Docker Action"
