@@ -99,8 +99,7 @@ jobs:
     - name: Build and Publish Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        image: vani06/demo-app
-        registry: docker.io
+        registry: vani06/demo-app
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         
