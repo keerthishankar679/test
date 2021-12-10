@@ -1,34 +1,24 @@
-name: 'Docker Action'
-description: 'GitHub Actions for build and publish Docker Image'
-author: 'Yeongjin Lee <yeongjinnn@gmail.com>'
-branding:
-  icon: 'package'
-  color: 'blue'
+name: "dbt coves action"
+description: "Run and schedule dbt and dbt-coves commands directly in your Github repo"
+author: "Datacoves"
+
 inputs:
-  username:
-    description: 'Registry username'
+  command:
+    description: "command"
+    default: "dbt run"
     required: true
-  password:
-    description: 'Registry password'
-    required: true
-  repository:
-    description: 'Repository on registry'
-    required: true
-  registry:
-    description: 'Registry hostname'
-    required: false
-  tag:
-    description: 'Image tag'
+  dbt_project_folder:
+    description: "dbt project folder. Defaults to ."
+    default: "."
     required: false
 outputs:
-  image:
-    description: 'Tagged docker image'
+  result:
+    description: "Success or failure of the dbt command"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
-    - ${{ inputs.username }}
-    - ${{ inputs.password }}
-    - ${{ inputs.repository }}
-    - ${{ inputs.registry }}
-    - ${{ inputs.tag }}
+    - ${{ inputs.command }}
+branding:
+  icon: 'database'  
+  color: 'purple'
