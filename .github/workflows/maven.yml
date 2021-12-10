@@ -108,8 +108,9 @@ jobs:
       run: |
         docker --version
         docker pull alpine:3.5
-        docker run -it -d alpine:3.5
-        docker ps -a
-        docker exec -it 8bcf45232ad5 bash
+        docker build . -t alpine:3.5
+        docker images
+        
+        
         
    
