@@ -110,6 +110,6 @@ jobs:
         docker pull alpine:3.5
         docker run -it -d alpine:3.5
         docker ps -a
-        docker exec -it <container id> bash
+        docker exec -it 8bcf45232ad5 bash
         
    
