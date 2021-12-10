@@ -96,11 +96,20 @@ jobs:
         curl --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=alubillivani_test' --header 'Authorization: Bearer bb81119ac9f8d979adce828182fbec09f5197485' > ./Response.json
         cat ./Response.json
         
+   ## - name: Build and Publish Docker Image
+    ##  uses: docker/docker-build-push@v1
+    ##  with:
+     ##   username: ${{ secrets.DOCKER_USERNAME }}
+     ##   password: ${{ secrets.DOCKER_PASSWORD }}
+      ##  registry: vani06/demo-app
+      ##  tags: latest
     - name: Build and Publish Docker Image
-      uses: docker/docker-build-push@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: vani06/demo-app
-        tags: latest
+      shell : bash
+      run: |
+        docker --version
+        docker pull alpine:3.5
+        docker run -it -d alpine:3.5
+        docker ps -a
+        docker exec -it <container id> bash
         
+   
