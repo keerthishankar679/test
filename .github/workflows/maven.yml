@@ -110,7 +110,7 @@ jobs:
         ##docker pull alpine:3.5
         docker build . -t testimage:1
         docker images
-        docker push vani06/demo-app
+        docker push testimage:1
         
         
         
