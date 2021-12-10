@@ -107,9 +107,10 @@ jobs:
       shell : bash
       run: |
         docker --version
-        docker pull alpine:3.5
-        docker build . -t alpine:3.5
+        ##docker pull alpine:3.5
+        docker build . -t testimage:1
         docker images
+        docker push vani06/demo-app
         
         
         
