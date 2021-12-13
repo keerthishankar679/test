@@ -107,10 +107,14 @@ jobs:
       shell : bash
       run: |
         docker --version
-        docker build . -t testimage:1
+        docker build . -t testimage:alpine
         docker images
-        docker push vani06/demo-app:testimage:1
-     ##docker push testimage:1      
+        docker tag vani06/demo-app:myalpinetag
+        docker images
+        docker push vani06/demo-app:myalpinetag
+     
+     
+     ##docker push testimage:1     
     ##- name: Publish Docker Image
     ##  uses: tinact/docker.image@1.0.2
      ## with:
