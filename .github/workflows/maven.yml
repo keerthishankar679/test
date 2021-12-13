@@ -113,12 +113,12 @@ jobs:
     ##    password: ${{ secrets.DOCKER_PASSWORD }}
       
      
-   ## - name: Build and Publish Docker Image
-   ##   shell : bash
-   ##   run: |
-    ##    docker --version
-     ##   docker build . -t testimage:alpine
-     ##   docker images
+    - name: Build and Publish Docker Image
+      shell : bash
+      run: |
+        docker --version
+        docker build . -t testimage:alpine
+        docker images
       ##  docker tag testimage:alpine vani06/demo-app:myalpinetag
       ##  docker images
       ##  docker push vani06/demo-app:myalpinetag
