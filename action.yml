@@ -1,24 +1,20 @@
-name: "dbt coves action"
-description: "Run and schedule dbt and dbt-coves commands directly in your Github repo"
-author: "Datacoves"
-
+name: Run a yarn or npm command
+description: Runs any yarn or npm command e.g. yarn test.
+author: adzz
 inputs:
-  command:
-    description: "command"
-    default: "dbt run"
-    required: true
-  dbt_project_folder:
-    description: "dbt project folder. Defaults to ."
-    default: "."
+  package-manager:
+    description: Specify whether to use npm or yarn to run the tests. May be npm or yarn only defaults to yarn
     required: false
-outputs:
-  result:
-    description: "Success or failure of the dbt command"
+    default: yarn
+  command:
+    description: The command you wish to run e.g. test
+    required: true
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
+    - ${{ inputs.package-manager }}
     - ${{ inputs.command }}
 branding:
-  icon: 'database'  
-  color: 'purple'
+  icon: circle
+  color: purple
