@@ -117,7 +117,9 @@ jobs:
         image_name: testimage:1
         registry_username: ${{ secrets.DOCKER_USERNAME }}
         registry_password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: registry.hub.docker.com
+        registry: vani06/demo-app
+        image_tag: latest
+        dockerfile: dockerfile
         
         
         
