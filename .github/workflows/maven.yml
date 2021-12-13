@@ -109,7 +109,7 @@ jobs:
         docker --version
         docker build . -t testimage:alpine
         docker images
-        docker tag vani06/demo-app:myalpinetag
+        docker tag testimage:alpine vani06/demo-app:myalpinetag
         docker images
         docker push vani06/demo-app:myalpinetag
      
