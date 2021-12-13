@@ -109,17 +109,17 @@ jobs:
         docker --version
         docker build . -t testimage:1
         docker images
-     
+        docker push vani06/demo-app:testimage:1
      ##docker push testimage:1      
-    - name: Publish Docker Image
-      uses: tinact/docker.image@1.0.2
-      with:
-        image_name: testimage:1
-        registry_username: ${{ secrets.DOCKER_USERNAME }}
-        registry_password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: vani06/demo-app
-        image_tag: latest
-        dockerfile: dockerfile
+    ##- name: Publish Docker Image
+    ##  uses: tinact/docker.image@1.0.2
+     ## with:
+      ##  image_name: testimage:1
+      ##  registry_username: ${{ secrets.DOCKER_USERNAME }}
+       ## registry_password: ${{ secrets.DOCKER_PASSWORD }}
+       ## registry: vani06/demo-app
+       ## image_tag: latest
+      ## dockerfile: dockerfile
         
         
         
