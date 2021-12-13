@@ -107,10 +107,18 @@ jobs:
       shell : bash
       run: |
         docker --version
-        ##docker pull alpine:3.5
         docker build . -t testimage:1
         docker images
-        docker push testimage:1
+     
+     ##docker push testimage:1      
+    - name: Publish Docker Image
+      uses: tinact/docker.image@1.0.2
+      with:
+        image_name: testimage:1
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: https://hub.docker.com/repository/docker/vani06/demo-app
+        tags: latest
         
         
         
