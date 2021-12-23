@@ -25,6 +25,18 @@ jobs:
 
     steps:
     #Code Checkout#
+   
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Opening pull request
+      id: pull
+      uses: ./
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        FROM_BRANCH: "main"
+        TO_BRANCH: "develop"
     
     - name: ' Checkout repository on branch: ${{ github.REF }}'
       uses: actions/checkout@v2
