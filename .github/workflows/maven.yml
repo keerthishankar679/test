@@ -63,6 +63,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=keerthishankar679_keerthishankar679
+          cd target
           ls -a
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
