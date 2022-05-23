@@ -2,7 +2,7 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
 name: GIThub actions Maven build example
-# Environmental Variables
+# Environmental Variabless
 env:
   STACK: Java
   BUILD_TECH: java_maven
