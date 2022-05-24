@@ -10,15 +10,15 @@ env:
   CONTINUE_ON_ERROR_SETUP: true
   JOB_STATUS_CODE: 0
   
-on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    branches:
-      -master
-      -main
+##on:
+  ##push:
+   ## branches:
+     ## - master
+     ## - main
+  ##pull_request:
+   ## branches:
+    ##  -master
+     ## -main##
 jobs:
   build:
     runs-on: ubuntu-latest
