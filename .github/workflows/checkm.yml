@@ -3,6 +3,9 @@ name: Publish CxFlow GitHub Action
 # Run this workflow on Tags matching v* pattern and publish a new release
 on:
   push:
+    branches:
+      - master
+      - main
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
